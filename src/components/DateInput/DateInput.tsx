@@ -18,6 +18,10 @@ const DateInput = () => {
     >
       <span className="chevronLeft"><ChevronLeft /></span>
       <span className="chevronRight"><ChevronRight /></span>
+      <div className="inputValue">
+        <span className="month">October</span>
+        <span className="year">2021</span>
+      </div>
     </Input>
   );
 };
