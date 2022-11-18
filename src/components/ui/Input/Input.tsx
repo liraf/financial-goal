@@ -7,7 +7,7 @@ interface InputProps {
   children?: React.ReactNode
   className?: string
   propValue?: string
-  maskOptions?: any // TODO: remove any
+  maskOptions?: IMask.AnyMaskedOptions
   onInputChange?: (value: string) => void
 }
 
@@ -15,16 +15,16 @@ const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
   const { label, children = <></>, className = '', propValue, maskOptions, onInputChange, type = 'text', readOnly = false } = props
 
   const [value, setValue] = useState('')
-  const [mask, setMask] = useState<any>() // TODO: remove any
+  const [mask, setMask] = useState<IMask.InputMask<IMask.AnyMaskedOptions>>()
 
-  const htmlInputRef = useRef<any>(null) // TODO: remove any
+  const htmlInputRef = useRef<HTMLInputElement>(null)
 
   const onInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     const newValue = target.value;
 
     if (maskOptions) {
-      if (onInputChange) onInputChange(mask.unmaskedValue)
+      if (onInputChange) onInputChange(mask?.unmaskedValue || '')
     } else {
       if (onInputChange) onInputChange(newValue)
     }

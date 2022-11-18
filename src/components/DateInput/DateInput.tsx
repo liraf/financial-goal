@@ -16,7 +16,7 @@ const DateInput = (props: DateInputProps) => {
 
   const [value, setValue] = useState<string>(getMonthOneYearAhead().toDateString())
 
-  const inputRef = useRef<any>(null) // TODO: remove any
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const month = useMemo(() => {
     return getMonthByString(value)
@@ -44,8 +44,8 @@ const DateInput = (props: DateInputProps) => {
   }
 
   const focusInput = () => {
-    const input = inputRef?.current?.getElementsByClassName('htmlInput')[0]
-    if (document.activeElement !== input) input.focus()
+    const input = inputRef?.current?.getElementsByClassName('htmlInput')[0] as HTMLElement
+    if (document.activeElement !== input) input?.focus()
   }
 
   const onKeyPress = (event: KeyboardEvent) => {
