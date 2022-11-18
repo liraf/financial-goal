@@ -4,9 +4,10 @@ import "./DateInput.scss";
 import Input from "../ui/Input/Input";
 import ChevronRight from "../ui/SystemIcons/ChevronRight";
 import ChevronLeft from "../ui/SystemIcons/ChevronLeft";
+import { getMonthOneYearAhead } from "../../helpers/date";
 
 const DateInput = () => {
-  const [value, setValue] = useState<string>()
+  const [value, setValue] = useState<string>(getMonthOneYearAhead().toDateString())
 
   return (
     <Input
