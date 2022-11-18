@@ -4,6 +4,7 @@
   input {
     @include typo-headingSmall();
     color: transparent; // Input value will be custom rendered
+    padding: 14px 0px;
   }
 }
 
