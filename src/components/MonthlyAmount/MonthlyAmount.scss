@@ -19,6 +19,7 @@
 .amount {
   @include typo-headingMedium();
   color: $brand-secondary;
+  padding-left: 8px;
 }
 
 .note {
@@ -27,4 +28,8 @@
   padding: 24px 32px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    text-align: center;
+  }
 }

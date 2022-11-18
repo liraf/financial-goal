@@ -17,6 +17,11 @@
   color: $blue-gray-900;
   position: relative;
   line-height: 120%;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
 }
 
 @mixin typo-headingSmall() {
@@ -27,6 +32,11 @@
   color: $blue-gray-900;
   position: relative;
   line-height: 120%;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 @mixin typo-subtitle() {
@@ -52,6 +62,11 @@
   color: $blue-gray-900;
   position: relative;
   line-height: 150%;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    font-size: 14px;
+    line-height: 21px;
+  }
 }
 
 @mixin typo-description() {

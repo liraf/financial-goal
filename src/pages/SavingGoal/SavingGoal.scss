@@ -1,5 +1,11 @@
 .savingGoal {
   @include smallContainer();
+  padding: 48px 0px;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .phrase {
@@ -8,8 +14,14 @@
   text-align: center;
 }
 
-.savingCard {
+.savingCard.card {
   margin-top: 24px;
+  margin-bottom: 48px; // Re-align card according to design
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    padding: 24px 24px 40px 24px;
+    width: calc(100% - 48px);
+  }
 }
 
 .buyHouse {
@@ -41,9 +53,19 @@
   width: calc(60% - 16px);
   margin-right: 16px;
   display: inline-block;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 16px;
+  }
 }
 
 .dateInputContainer {
   width: 40%;
   display: inline-block;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    width: 100%;
+  }
 }
