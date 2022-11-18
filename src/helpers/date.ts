@@ -1,4 +1,9 @@
-// TODO: Create fn description and tests
+// TODO: Create tests
+/**
+ * Returns date one year ahead of now on the first day of the month
+ * 
+ * @returns date
+ */
 export const getMonthOneYearAhead = () => {
   const date = new Date()
   date.setDate(1)
@@ -6,14 +11,26 @@ export const getMonthOneYearAhead = () => {
   return date
 }
 
-// TODO: Create fn description and tests
+// TODO: Create tests
+/**
+ * Returns month string by date string
+ * 
+ * @param dateString
+ * @returns monthName
+ */
 export const getMonthByString = (dateString: string) => {
   const date = new Date(dateString)
   const monthsNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   return monthsNames[date.getMonth()]
 }
 
-// TODO: Create fn description and tests
+// TODO: Create tests
+/**
+ * Returns if date is on same or previous month than today
+ * 
+ * @param date 
+ * @returns isSameOrPreviousMonth
+ */
 export const isSameOrPreviousMonth = (date: Date) => {
   const today = new Date()
   const isPreviousYear = date.getFullYear() < today.getFullYear()
@@ -23,7 +40,14 @@ export const isSameOrPreviousMonth = (date: Date) => {
   return isPreviousYear || (isSameYear && isPreviousOrSameMonth)
 }
 
-// TODO: Create fn description and tests
+// TODO: Create tests
+/**
+ * Returns month amount difference between two dates
+ * 
+ * @param date1 
+ * @param date2 
+ * @returns months
+ */
 export const getMonthDiff = (date1: Date, date2: Date) => {
   let months
   months = (date2.getFullYear() - date1.getFullYear()) * 12
