@@ -1,0 +1,9 @@
+.savingGoal {
+  @include smallContainer();
+}
+
+.phrase {
+  @include typo-subtitle();
+  color: $brand-primary;
+  text-align: center;
+}
