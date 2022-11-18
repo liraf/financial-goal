@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useCallback, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import "./DateInput.scss";
 
 import Input from "../ui/Input/Input";
@@ -48,18 +48,18 @@ const DateInput = (props: DateInputProps) => {
     if (document.activeElement !== input) input.focus()
   }
 
-  const onKeyPress = useCallback((event: KeyboardEvent) => {
+  const onKeyPress = (event: KeyboardEvent) => {
     const input = inputRef?.current?.getElementsByClassName('htmlInput')[0]
     if (!input || document.activeElement !== input) return
 
     if (event.code === 'ArrowLeft') backOneMonth()
     else addOneMonth()
-  }, [inputRef?.current, backOneMonth, addOneMonth])
+  }
   useKeyboardShortcut(['ArrowLeft', 'ArrowRight'], onKeyPress)
 
   useEffect(() => {
     if(onChange) onChange(value)
-  }, [value])
+  }, [value, onChange])
 
   return (
     <div ref={inputRef}>

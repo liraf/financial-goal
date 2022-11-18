@@ -1,9 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 
-interface UseKeyboardShortcutProps {
-  
-}
-
 const useKeyboardShortcut = (keyCodes: string[], callback: (event: KeyboardEvent) => void, node = null) => {
   const callbackRef = useRef(callback)
   useLayoutEffect(() => {
