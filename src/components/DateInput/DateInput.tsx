@@ -24,6 +24,14 @@ const DateInput = () => {
     focusInput()
     const date = new Date(value)
     date.setMonth(date.getMonth() - 1)
+
+    const today = new Date()
+
+    const isPreviousYear = date.getFullYear() < today.getFullYear()
+    const isSameYear = date.getFullYear() === today.getFullYear()
+    const isPreviousOrSameMonth = date.getMonth() <= today.getMonth()
+
+    if ((isSameYear && isPreviousOrSameMonth) || isPreviousYear) return // Only allow one month from now
     setValue(date.toDateString())
   }
 
