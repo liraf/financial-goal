@@ -1,0 +1,7 @@
+.card {
+  @include level4();
+  background: $white;
+  width: calc(100% - 80px);
+  padding: 35px 40px 40px 40px;
+  border-radius: 8px;
+}

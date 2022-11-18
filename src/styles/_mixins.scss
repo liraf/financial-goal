@@ -1,9 +1,13 @@
+// General
+
 @mixin buttonReset() {
   background: none;
   border: none;
   cursor: pointer;
   text-decoration: none;
 }
+
+// Typo
 
 @mixin typo-headingMedium() {
   font-family: "Rubik", sans-serif;
@@ -70,6 +74,8 @@
   line-height: 16px;
 }
 
+// Container
+
 @mixin container() {
   width: $container-width;
   display: block;
@@ -82,4 +88,10 @@
   display: block;
   margin: auto;
   max-width: 90%;
+}
+
+// Box-shadow
+
+@mixin level4 {
+  box-shadow: 0px 16px 32px rgba(30, 42, 50, 0.08);
 }

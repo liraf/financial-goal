@@ -7,3 +7,28 @@
   color: $brand-primary;
   text-align: center;
 }
+
+.savingCard {
+  margin-top: 24px;
+}
+
+.buyHouse {
+  width: 64px;
+  margin-right: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.title {
+  @include typo-headingSmall();
+}
+
+.subtitle {
+  @include typo-paragraph();
+  color: $blue-gray-400;
+  margin-top: 4px;
+}
