@@ -4,7 +4,7 @@ import "./SavingGoal.scss";
 import Card from "../../components/ui/Card/Card";
 import buyHouse from "../../assets/buyHouse.svg"
 import AmountInput from "../../components/AmountInput/AmountInput";
-import DateInput from "../../components/DateInput/DateInput";
+import ReachDateInput from "../../components/ReachDateInput/ReachDateInput";
 import MonthlyAmount from "../../components/MonthlyAmount/MonthlyAmount";
 import Button from "../../components/ui/Button/Button";
 
@@ -38,7 +38,7 @@ const SavingGoal = () => {
             <AmountInput onChange={onAmountChange} />
           </div>
           <div className="dateInputContainer">
-            <DateInput onChange={onReachDateChange} />
+            <ReachDateInput onChange={onReachDateChange} />
           </div>
 
           <MonthlyAmount reachDate={reachDate} amount={amount} />

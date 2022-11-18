@@ -1,4 +1,4 @@
-// TODO: Create tests
+// TODO: Create unit tests
 /**
  * Returns date one year ahead of now on the first day of the month
  * 
@@ -11,7 +11,7 @@ export const getMonthOneYearAhead = () => {
   return date
 }
 
-// TODO: Create tests
+// TODO: Create unit tests
 /**
  * Returns month string by date string
  * 
@@ -24,7 +24,7 @@ export const getMonthByString = (dateString: string) => {
   return monthsNames[date.getMonth()]
 }
 
-// TODO: Create tests
+// TODO: Create unit tests
 /**
  * Returns if date is on same or previous month than today
  * 
@@ -40,7 +40,7 @@ export const isSameOrPreviousMonth = (date: Date) => {
   return isPreviousYear || (isSameYear && isPreviousOrSameMonth)
 }
 
-// TODO: Create tests
+// TODO: Create unit tests
 /**
  * Returns month amount difference between two dates
  * 

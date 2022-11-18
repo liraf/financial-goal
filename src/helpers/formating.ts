@@ -1,4 +1,4 @@
-// TODO: Create tests
+// TODO: Create unit tests
 /**
  * Returns string that represents the number in a currency format
  * 

@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import DateInput from './DateInput';
+import ReachDateInput from './ReachDateInput';
 
-test('renders DateInput in next year', () => {
-  render(<DateInput />);
+test('renders ReachDateInput in next year', () => {
+  render(<ReachDateInput />);
 
 	const renderedMonth = new Date()
 	renderedMonth.setMonth(renderedMonth.getMonth() + 12)
@@ -13,7 +13,7 @@ test('renders DateInput in next year', () => {
 });
 
 test('go back one month by clicking', () => {
-  render(<DateInput />);
+  render(<ReachDateInput />);
 
   const goBackButton = screen.getByTestId('month-back');
 	fireEvent.click(goBackButton)
@@ -27,7 +27,7 @@ test('go back one month by clicking', () => {
 });
 
 test('go back one month by keyboard', () => {
-  render(<DateInput />);
+  render(<ReachDateInput />);
 
 	const monthLabelToFocus = screen.getByTestId('month-label')
 	fireEvent.click(monthLabelToFocus) // Focus on element
@@ -42,7 +42,7 @@ test('go back one month by keyboard', () => {
 });
 
 test('go up one month by clicking', () => {
-  render(<DateInput />);
+  render(<ReachDateInput />);
 
   const goAheadButton = screen.getByTestId('month-ahead');
 	fireEvent.click(goAheadButton)
@@ -56,7 +56,7 @@ test('go up one month by clicking', () => {
 });
 
 test('go up one month by keyboard', () => {
-  render(<DateInput />);
+  render(<ReachDateInput />);
 
 	const monthLabelToFocus = screen.getByTestId('month-label')
 	fireEvent.click(monthLabelToFocus) // Focus on element
@@ -71,7 +71,7 @@ test('go up one month by keyboard', () => {
 });
 
 test('do not allow go up or back by keyboard when is not focused', () => {
-  render(<DateInput />);
+  render(<ReachDateInput />);
 
 	fireEvent.click(document) // Focus outside input
 	fireEvent.keyDown(document, { code: 'ArrowRight' })
@@ -86,7 +86,7 @@ test('do not allow go up or back by keyboard when is not focused', () => {
 });
 
 test('do not allow go to previous months than today', async () => {
-  render(<DateInput />);
+  render(<ReachDateInput />);
 
   const goBackButton = screen.getByTestId('month-back');
 

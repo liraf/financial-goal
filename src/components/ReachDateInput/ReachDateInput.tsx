@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-import "./DateInput.scss";
+import "./ReachDateInput.scss";
 
 import Input from "../ui/Input/Input";
 import ChevronRight from "../ui/SystemIcons/ChevronRight";
@@ -7,11 +7,11 @@ import ChevronLeft from "../ui/SystemIcons/ChevronLeft";
 import useKeyboardShortcut from "../../helpers/hooks/useKeyboardShortcut";
 import { getMonthOneYearAhead, getMonthByString, isSameOrPreviousMonth } from "../../helpers/date";
 
-interface DateInputProps {
+interface ReachDateInputProps {
 	onChange?: (reachDate: string) => void
 }
 
-const DateInput = (props: DateInputProps) => {
+const ReachDateInput = (props: ReachDateInputProps) => {
   const { onChange } = props
 
   const [value, setValue] = useState<string>(getMonthOneYearAhead().toDateString())
@@ -64,7 +64,7 @@ const DateInput = (props: DateInputProps) => {
   return (
     <div ref={inputRef}>
       <Input
-        className="dateInput"
+        className="reachDateInput"
         label="Reach goal by"
         propValue={value}
         readOnly
@@ -80,4 +80,4 @@ const DateInput = (props: DateInputProps) => {
   );
 };
 
-export default DateInput;
+export default ReachDateInput;
