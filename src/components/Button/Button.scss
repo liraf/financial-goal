@@ -1,0 +1,18 @@
+.button {
+  @include buttonReset();
+  @include typo-paragraph();
+  line-height: 20px;
+  font-weight: 600;
+  background-color: $brand-primary;
+  color: $white;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  padding: 18px 0px;
+
+  &:hover {
+    background-color: $brand-secondary;
+  }
+}

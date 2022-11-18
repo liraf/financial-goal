@@ -4,6 +4,7 @@ import Card from "../../components/Card/Card";
 import buyHouse from "../../assets/buyHouse.svg"
 import AmountInput from "../../components/AmountInput/AmountInput";
 import MonthlyAmount from "../../components/MonthlyAmount/MonthlyAmount";
+import Button from "../../components/Button/Button";
 
 const SavingGoal = () => {
   return (
@@ -25,6 +26,8 @@ const SavingGoal = () => {
           </div>
 
           <MonthlyAmount value={3222.23} />
+
+          <Button className="confirmButton">Confirm</Button>
         </>
       </Card>
     </div>
