@@ -1,0 +1,10 @@
+.label {
+  @include typo-description();
+  margin-bottom: 4px;
+}
+
+.htmlInput {
+  @include typo-paragraph();
+  border: 1px solid $blue-gray-50;
+  padding: 16px;
+}
