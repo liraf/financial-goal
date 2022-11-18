@@ -27,8 +27,7 @@ const AmountInput = (props: AmountInputProps) => {
         thousandsSeparator: ',',
         padFractionalZeros: false,
         normalizeZeros: true
-      }}
-    >
+      }}>
       <span className="dollarSign">
         <DollarSign />
       </span>
