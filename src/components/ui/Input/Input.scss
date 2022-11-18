@@ -18,6 +18,7 @@
 
   &:focus, &:hover {
     border: 1px solid $blue-gray-400;
+    outline: none;
   }
 
   // Remove arrows from number input
