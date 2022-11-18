@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import "./DateInput.scss";
 
 import Input from "../ui/Input/Input";
 import ChevronRight from "../ui/SystemIcons/ChevronRight";
 import ChevronLeft from "../ui/SystemIcons/ChevronLeft";
-import { getMonthOneYearAhead } from "../../helpers/date";
+import { getMonthOneYearAhead, getMonthByString } from "../../helpers/date";
 
 const DateInput = () => {
   const [value, setValue] = useState<string>(getMonthOneYearAhead().toDateString())
+
+  const month = useMemo(() => {
+    return getMonthByString(value)
+  }, [value])
+
+  const year = useMemo(() => {
+    return new Date(value).getFullYear()
+  }, [value])
+
+  const backOneMonth = () => {
+    const date = new Date(value)
+    date.setMonth(date.getMonth() - 1)
+    setValue(date.toDateString())
+  }
+
+  const addOneMonth = () => {
+    const date = new Date(value)
+    date.setMonth(date.getMonth() + 1)
+    setValue(date.toDateString())
+  }
 
   return (
     <Input
@@ -16,11 +36,11 @@ const DateInput = () => {
       propValue={value}
       readOnly
     >
-      <span className="chevronLeft"><ChevronLeft /></span>
-      <span className="chevronRight"><ChevronRight /></span>
+      <span className="chevronLeft" onClick={backOneMonth}><ChevronLeft /></span>
+      <span className="chevronRight" onClick={addOneMonth}><ChevronRight /></span>
       <div className="inputValue">
-        <span className="month">October</span>
-        <span className="year">2021</span>
+        <span className="month">{month}</span>
+        <span className="year">{year}</span>
       </div>
     </Input>
   );

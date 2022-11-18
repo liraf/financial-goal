@@ -39,8 +39,10 @@
 .month {
   @include typo-paragraph();
   font-weight: 600;
+  user-select: none;
 }
 
 .year {
   @include typo-paragraph();
+  user-select: none;
 }
