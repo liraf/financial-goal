@@ -1,7 +1,7 @@
 import "./AmountInput.scss";
 
 import Input from "../ui/Input/Input";
-import DollarSign from "../SystemIcons/DollarSign";
+import DollarSign from "../ui/SystemIcons/DollarSign";
 import { formatToCurrency } from "../../helpers/formating";
 
 const AmountInput = () => {

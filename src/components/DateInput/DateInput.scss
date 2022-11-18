@@ -7,3 +7,19 @@
     padding: 14px 17px 14px 44px;
   }
 }
+
+.chevronLeft {
+  color: $blue-gray-300;
+  position: absolute;
+  bottom: 16px;
+  left: 12px;
+  cursor: pointer;
+}
+
+.chevronRight {
+  color: $blue-gray-300;
+  position: absolute;
+  bottom: 16px;
+  right: 12px;
+  cursor: pointer;
+}
