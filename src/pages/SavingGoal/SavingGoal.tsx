@@ -3,6 +3,7 @@ import "./SavingGoal.scss";
 import Card from "../../components/Card/Card";
 import buyHouse from "../../assets/buyHouse.svg"
 import AmountInput from "../../components/AmountInput/AmountInput";
+import MonthlyAmount from "../../components/MonthlyAmount/MonthlyAmount";
 
 const SavingGoal = () => {
   return (
@@ -15,13 +16,15 @@ const SavingGoal = () => {
             <img className="buyHouse" src={buyHouse} alt="Buy a house" />
             <div>
               <h1 className="title">Buy a house</h1>
-              <h2 className="subtitle">Saving goal</h2>
+              <h3 className="subtitle">Saving goal</h3>
             </div>
           </div>
 
           <div>
             <AmountInput />
           </div>
+
+          <MonthlyAmount value={3222.23} />
         </>
       </Card>
     </div>

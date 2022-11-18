@@ -1,0 +1,30 @@
+.monthlyAmount {
+  border-radius: 8px;
+  border: 1px solid $blue-gray-50;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.amountContainer {
+  padding: 24px 32px 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  @include typo-subtitle();
+}
+
+.amount {
+  @include typo-headingMedium();
+  color: $brand-secondary;
+}
+
+.note {
+  @include typo-caption();
+  background-color: $blue-gray-10;
+  padding: 24px 32px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

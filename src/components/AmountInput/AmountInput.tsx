@@ -12,7 +12,6 @@ const AmountInput = () => {
       type="number"
       min="0"
       max="1000000000"
-      formatNumberInput={formatToCurrency}
     >
       <span className="dollarSign"><DollarSign /></span>
     </Input>

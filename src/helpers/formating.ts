@@ -5,5 +5,5 @@ export const formatToCurrency = (number: number) => {
     currency: "USD"
   });
 
-  return parseInt(formatter.format(number), 10);
+  return formatter.format(number);
 }
