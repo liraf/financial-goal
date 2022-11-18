@@ -1,6 +1,6 @@
 import "./AmountInput.scss";
 
-import Input from "../Input/Input";
+import Input from "../ui/Input/Input";
 import DollarSign from "../SystemIcons/DollarSign";
 import { formatToCurrency } from "../../helpers/formating";
 

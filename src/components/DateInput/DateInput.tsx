@@ -1,6 +1,6 @@
 import "./DateInput.scss";
 
-import Input from "../Input/Input";
+import Input from "../ui/Input/Input";
 
 const DateInput = () => {
   return (
