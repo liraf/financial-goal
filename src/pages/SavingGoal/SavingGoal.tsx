@@ -3,6 +3,7 @@ import "./SavingGoal.scss";
 import Card from "../../components/Card/Card";
 import buyHouse from "../../assets/buyHouse.svg"
 import AmountInput from "../../components/AmountInput/AmountInput";
+import DateInput from "../../components/DateInput/DateInput";
 import MonthlyAmount from "../../components/MonthlyAmount/MonthlyAmount";
 import Button from "../../components/Button/Button";
 
@@ -21,9 +22,8 @@ const SavingGoal = () => {
             </div>
           </div>
 
-          <div>
-            <AmountInput />
-          </div>
+          <div className="amountInputContainer"><AmountInput /></div>
+          <div className="dateInputContainer"><DateInput /></div>
 
           <MonthlyAmount value={3222.23} />
 

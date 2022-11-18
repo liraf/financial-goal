@@ -1,0 +1,9 @@
+.dateInput {
+  position: relative;
+
+  input {
+    @include typo-headingSmall();
+    color: $blue-gray-600;
+    padding: 14px 17px 14px 44px;
+  }
+}

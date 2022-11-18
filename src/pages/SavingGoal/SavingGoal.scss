@@ -36,3 +36,14 @@
 .confirmButton {
   margin: auto;
 }
+
+.amountInputContainer {
+  width: calc(60% - 16px);
+  margin-right: 16px;
+  display: inline-block;
+}
+
+.dateInputContainer {
+  width: 40%;
+  display: inline-block;
+}
