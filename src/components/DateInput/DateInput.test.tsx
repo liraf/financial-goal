@@ -73,7 +73,6 @@ test('go up one month by keyboard', () => {
 test('do not allow go up or back by keyboard when is not focused', () => {
   render(<DateInput />);
 
-	const monthLabelToFocus = screen.getByTestId('month-label')
 	fireEvent.click(document) // Focus outside input
 	fireEvent.keyDown(document, { code: 'ArrowRight' })
 	fireEvent.keyDown(document, { code: 'ArrowBack' })
