@@ -2,7 +2,6 @@ import "./AmountInput.scss";
 
 import Input from "../ui/Input/Input";
 import DollarSign from "../ui/SystemIcons/DollarSign";
-import { formatToCurrency } from "../../helpers/formating";
 
 interface AmountInputProps {
 	onChange: (amount: number) => void
@@ -11,18 +10,27 @@ interface AmountInputProps {
 const AmountInput = (props: AmountInputProps) => {
   const { onChange } = props
 
-  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) onChange(parseInt(event?.target?.value, 10))
+  const onInputChange = (value: string) => {
+    if (onChange) onChange(parseInt(value, 10))
   }
 
   return (
     <Input
       className="amountInput"
       label="Total amount"
-      type="number"
-      min="0"
-      max="1000000000"
-      onChange={onInputChange}
+      onInputChange={onInputChange}
+      maskOptions={
+        {
+          mask: Number,
+          scale: 2,  // digits after point, 0 for integers
+          signed: false,  // disallow negative
+          thousandsSeparator: ',',  // any single char
+          padFractionalZeros: false,  // if true, then pads zeros at end to the length of scale
+          normalizeZeros: true,  // appends or removes zeros at ends
+          radix: ',',  // fractional delimiter
+          mapToRadix: ['.'],  // symbols to process as radix
+        }
+      }
     >
       <span className="dollarSign"><DollarSign /></span>
     </Input>

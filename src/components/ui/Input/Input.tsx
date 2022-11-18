@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import IMask from 'imask';
 import "./Input.scss";
 
 interface InputProps {
@@ -6,29 +7,37 @@ interface InputProps {
   children?: React.ReactNode
   className?: string
   propValue?: string
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  formatNumberInput?: (value: number) => number
+  maskOptions?: any
+  onInputChange?: (value: string) => void
 }
 
 const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
-  const { label, children = <></>, formatNumberInput, className = '', propValue, onChange, type = 'text', min, max } = props
+  const { label, children = <></>, className = '', propValue, maskOptions, onInputChange, type = 'text' } = props
 
   const [value, setValue] = useState<string | number>(0)
+  const [mask, setMask] = useState<any>()
 
-  const htmlInputProps = useMemo(() => {
-    const inputProps:React.HTMLProps<HTMLInputElement> = { type }
-    if (min) inputProps.min = min
-    if (max) inputProps.max = max
-    return inputProps
-  }, [type, min, max])
+  const htmlInputRef = useRef<any>(null)
 
-  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) onChange(event)
+  const onInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
-    const newValue = target.value;
+    let newValue = target.value;
 
-    setValue(formatNumberInput && type === 'number' ? formatNumberInput(parseInt(newValue, 10)) : newValue)
+    if (maskOptions) {
+      if (onInputChange) onInputChange(mask.unmaskedValue)
+    } else {
+      if (onInputChange) onInputChange(newValue)
+    }
+
+    setValue(newValue)
   }
+
+  useEffect(() => {
+    if (maskOptions && htmlInputRef?.current) {
+      const newMask = IMask(htmlInputRef?.current, maskOptions)
+      setMask(newMask)
+    }
+  }, [])
 
   useEffect(() => {
     if (propValue) setValue(propValue)
@@ -37,7 +46,7 @@ const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
   return (
     <div className={`input ${className}`}>
       {label && <label className="label">{label}</label>}
-      <input data-testid="html-input" className="htmlInput" value={value} onChange={onInputChange} {...htmlInputProps} />
+      <input data-testid="html-input" ref={htmlInputRef} className="htmlInput" value={value} onInput={onInput} type={type} />
       {children}
     </div>
   );
