@@ -1,28 +1,32 @@
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 
-const useKeyboardShortcut = (keyCodes: string[], callback: (event: KeyboardEvent) => void, node = null) => {
-  const callbackRef = useRef(callback)
+const useKeyboardShortcut = (
+  keyCodes: string[],
+  callback: (event: KeyboardEvent) => void,
+  node = null
+) => {
+  const callbackRef = useRef(callback);
   useLayoutEffect(() => {
-    callbackRef.current = callback
+    callbackRef.current = callback;
   });
 
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
       if (keyCodes.some((keyCode: string) => event.code === keyCode)) {
-        callbackRef.current(event)
+        callbackRef.current(event);
       }
     },
     [keyCodes]
-  )
+  );
 
   useEffect(() => {
-    const targetNode = node ?? document
-    if(targetNode) targetNode.addEventListener("keydown", handleKeyPress)
+    const targetNode = node ?? document;
+    if (targetNode) targetNode.addEventListener('keydown', handleKeyPress);
 
     return () => {
-      if(targetNode) targetNode.removeEventListener("keydown", handleKeyPress)
-    }
-  }, [handleKeyPress, node])
-}
+      if (targetNode) targetNode.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [handleKeyPress, node]);
+};
 
-export default useKeyboardShortcut
+export default useKeyboardShortcut;

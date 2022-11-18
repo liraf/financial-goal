@@ -1,28 +1,30 @@
-import { useState } from "react";
-import "./SavingGoal.scss";
+import React, { useState } from 'react';
+import './SavingGoal.scss';
 
-import Card from "../../components/ui/Card/Card";
-import buyHouse from "../../assets/buyHouse.svg"
-import AmountInput from "../../components/AmountInput/AmountInput";
-import ReachDateInput from "../../components/ReachDateInput/ReachDateInput";
-import MonthlyAmount from "../../components/MonthlyAmount/MonthlyAmount";
-import Button from "../../components/ui/Button/Button";
+import Card from '../../components/ui/Card/Card';
+import buyHouse from '../../assets/buyHouse.svg';
+import AmountInput from '../../components/AmountInput/AmountInput';
+import ReachDateInput from '../../components/ReachDateInput/ReachDateInput';
+import MonthlyAmount from '../../components/MonthlyAmount/MonthlyAmount';
+import Button from '../../components/ui/Button/Button';
 
 const SavingGoal = () => {
-  const [reachDate, setReachDate] = useState('')
-  const [amount, setAmount] = useState(0)
+  const [reachDate, setReachDate] = useState('');
+  const [amount, setAmount] = useState(0);
 
   const onAmountChange = (value: number) => {
-    setAmount(value)
-  }
+    setAmount(value);
+  };
 
   const onReachDateChange = (date: string) => {
-    setReachDate(date)
-  }
+    setReachDate(date);
+  };
 
   return (
     <div className="savingGoal">
-      <div className="phrase">Let's plan your <b>saving goal.</b></div>
+      <div className="phrase">
+        Let&#39;s plan your <b>saving goal.</b>
+      </div>
 
       <Card className="savingCard">
         <>

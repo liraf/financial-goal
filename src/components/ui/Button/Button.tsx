@@ -1,12 +1,14 @@
-import "./Button.scss";
+import React from 'react';
+import './Button.scss';
 
 export interface ButtonProps {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }
 
 const Button = (props: ButtonProps & React.HTMLProps<HTMLButtonElement>) => {
-  const { children, className = '', onClick } = props
+  // eslint-disable-next-line react/prop-types
+  const { children, className = '', onClick } = props;
 
   return (
     <button className={`button ${className}`} onClick={onClick}>

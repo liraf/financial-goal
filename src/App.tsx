@@ -1,6 +1,8 @@
-import "./App.scss";
-import Header from "./components/Header/Header";
-import SavingGoal from "./pages/SavingGoal/SavingGoal";
+import React from 'react';
+import './App.scss';
+
+import Header from './components/Header/Header';
+import SavingGoal from './pages/SavingGoal/SavingGoal';
 
 const App = () => {
   return (
