@@ -12,3 +12,13 @@ export const getMonthByString = (dateString: string) => {
   const monthsNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   return monthsNames[date.getMonth()]
 }
+
+// TODO: Create fn description and tests
+export const isSameOrPreviousMonth = (date: Date) => {
+  const today = new Date()
+  const isPreviousYear = date.getFullYear() < today.getFullYear()
+  const isSameYear = date.getFullYear() === today.getFullYear()
+  const isPreviousOrSameMonth = date.getMonth() <= today.getMonth()
+
+  return isPreviousYear || (isSameYear && isPreviousOrSameMonth)
+}

@@ -37,7 +37,7 @@ const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
   return (
     <div className={`input ${className}`}>
       {label && <label className="label">{label}</label>}
-      <input className="htmlInput" value={value} onChange={updateValue} {...htmlInputProps} />
+      <input data-testid="html-input" className="htmlInput" value={value} onChange={updateValue} {...htmlInputProps} />
       {children}
     </div>
   );

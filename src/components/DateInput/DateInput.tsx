@@ -5,7 +5,7 @@ import Input from "../ui/Input/Input";
 import ChevronRight from "../ui/SystemIcons/ChevronRight";
 import ChevronLeft from "../ui/SystemIcons/ChevronLeft";
 import useKeyboardShortcut from "../../helpers/hooks/useKeyboardShortcut";
-import { getMonthOneYearAhead, getMonthByString } from "../../helpers/date";
+import { getMonthOneYearAhead, getMonthByString, isSameOrPreviousMonth } from "../../helpers/date";
 
 const DateInput = () => {
   const [value, setValue] = useState<string>(getMonthOneYearAhead().toDateString())
@@ -25,13 +25,8 @@ const DateInput = () => {
     const date = new Date(value)
     date.setMonth(date.getMonth() - 1)
 
-    const today = new Date()
+    if (isSameOrPreviousMonth(date)) return // Only allow one month from now
 
-    const isPreviousYear = date.getFullYear() < today.getFullYear()
-    const isSameYear = date.getFullYear() === today.getFullYear()
-    const isPreviousOrSameMonth = date.getMonth() <= today.getMonth()
-
-    if ((isSameYear && isPreviousOrSameMonth) || isPreviousYear) return // Only allow one month from now
     setValue(date.toDateString())
   }
 
@@ -41,7 +36,7 @@ const DateInput = () => {
     date.setMonth(date.getMonth() + 1)
     setValue(date.toDateString())
   }
-  
+
   const focusInput = () => {
     const input = inputRef?.current?.getElementsByClassName('htmlInput')[0]
     if (document.activeElement !== input) input.focus()
@@ -63,9 +58,9 @@ const DateInput = () => {
         label="Reach goal by"
         propValue={value}
       >
-        <span className="chevronLeft" onClick={backOneMonth}><ChevronLeft /></span>
-        <span className="chevronRight" onClick={addOneMonth}><ChevronRight /></span>
-        <div className="inputValue" onClick={focusInput}>
+        <span className="chevronLeft" data-testid="month-back" onClick={backOneMonth}><ChevronLeft /></span>
+        <span className="chevronRight" data-testid="month-ahead" onClick={addOneMonth}><ChevronRight /></span>
+        <div className="inputValue" data-testid="month-label" onClick={focusInput}>
           <span className="month">{month}</span>
           <span className="year">{year}</span>
         </div>
