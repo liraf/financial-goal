@@ -1,6 +1,7 @@
 .button {
   @include buttonReset();
   @include typo-paragraph();
+  @include transition-smooth();
   line-height: 20px;
   font-weight: 600;
   background-color: $brand-primary;
