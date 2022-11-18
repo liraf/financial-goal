@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useCallback } from "react";
+import { useState, useMemo, useRef, useCallback, useEffect } from "react";
 import "./DateInput.scss";
 
 import Input from "../ui/Input/Input";
@@ -7,7 +7,13 @@ import ChevronLeft from "../ui/SystemIcons/ChevronLeft";
 import useKeyboardShortcut from "../../helpers/hooks/useKeyboardShortcut";
 import { getMonthOneYearAhead, getMonthByString, isSameOrPreviousMonth } from "../../helpers/date";
 
-const DateInput = () => {
+interface DateInputProps {
+	onChange?: (reachDate: string) => void
+}
+
+const DateInput = (props: DateInputProps) => {
+  const { onChange } = props
+
   const [value, setValue] = useState<string>(getMonthOneYearAhead().toDateString())
 
   const inputRef = useRef<any>(null)
@@ -50,6 +56,10 @@ const DateInput = () => {
     else addOneMonth()
   }, [inputRef?.current, backOneMonth, addOneMonth])
   useKeyboardShortcut(['ArrowLeft', 'ArrowRight'], onKeyPress)
+
+  useEffect(() => {
+    if(onChange) onChange(value)
+  }, [value])
 
   return (
     <div ref={inputRef}>

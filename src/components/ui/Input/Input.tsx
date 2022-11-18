@@ -6,7 +6,7 @@ interface InputProps {
   children?: React.ReactNode
   className?: string
   propValue?: string
-  onChange?: (event: React.FormEvent<HTMLInputElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   formatNumberInput?: (value: number) => number
 }
 
@@ -22,7 +22,7 @@ const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
     return inputProps
   }, [type, min, max])
 
-  const updateValue = (event: React.FormEvent<HTMLInputElement>) => {
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) onChange(event)
     const target = event.target as HTMLInputElement;
     const newValue = target.value;
@@ -37,7 +37,7 @@ const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
   return (
     <div className={`input ${className}`}>
       {label && <label className="label">{label}</label>}
-      <input data-testid="html-input" className="htmlInput" value={value} onChange={updateValue} {...htmlInputProps} />
+      <input data-testid="html-input" className="htmlInput" value={value} onChange={onInputChange} {...htmlInputProps} />
       {children}
     </div>
   );
