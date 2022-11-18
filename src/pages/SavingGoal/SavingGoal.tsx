@@ -2,6 +2,7 @@ import "./SavingGoal.scss";
 
 import Card from "../../components/Card/Card";
 import buyHouse from "../../assets/buyHouse.svg"
+import AmountInput from "../../components/AmountInput/AmountInput";
 
 const SavingGoal = () => {
   return (
@@ -16,6 +17,10 @@ const SavingGoal = () => {
               <h1 className="title">Buy a house</h1>
               <h2 className="subtitle">Saving goal</h2>
             </div>
+          </div>
+
+          <div>
+            <AmountInput />
           </div>
         </>
       </Card>

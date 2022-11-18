@@ -1,0 +1,16 @@
+.amountInput {
+  position: relative;
+
+  input {
+    @include typo-headingSmall();
+    color: $blue-gray-600;
+    padding: 14px 17px 14px 44px;
+  }
+}
+
+.dollarSign {
+  color: $blue-gray-100;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}

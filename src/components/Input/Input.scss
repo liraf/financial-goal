@@ -1,3 +1,8 @@
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
 .label {
   @include typo-description();
   margin-bottom: 4px;
@@ -7,4 +12,19 @@
   @include typo-paragraph();
   border: 1px solid $blue-gray-50;
   padding: 16px;
+  border-radius: 4px;
+
+  &:focus, &:hover {
+    border: 1px solid $blue-gray-400;
+  }
+
+  // Remove arrows from number input
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
 }
