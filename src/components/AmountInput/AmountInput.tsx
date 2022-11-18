@@ -22,13 +22,11 @@ const AmountInput = (props: AmountInputProps) => {
       maskOptions={
         {
           mask: Number,
-          scale: 2,  // digits after point, 0 for integers
-          signed: false,  // disallow negative
-          thousandsSeparator: ',',  // any single char
-          padFractionalZeros: false,  // if true, then pads zeros at end to the length of scale
-          normalizeZeros: true,  // appends or removes zeros at ends
-          radix: ',',  // fractional delimiter
-          mapToRadix: ['.'],  // symbols to process as radix
+          scale: 2,
+          signed: false,
+          thousandsSeparator: ',',
+          padFractionalZeros: false,
+          normalizeZeros: true,
         }
       }
     >

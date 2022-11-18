@@ -3,25 +3,25 @@ import IMask from 'imask';
 import "./Input.scss";
 
 interface InputProps {
-  label?: string
+  label: string
   children?: React.ReactNode
   className?: string
   propValue?: string
-  maskOptions?: any
+  maskOptions?: any // TODO: remove any
   onInputChange?: (value: string) => void
 }
 
 const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
-  const { label, children = <></>, className = '', propValue, maskOptions, onInputChange, type = 'text' } = props
+  const { label, children = <></>, className = '', propValue, maskOptions, onInputChange, type = 'text', readOnly = false } = props
 
-  const [value, setValue] = useState<string | number>(0)
-  const [mask, setMask] = useState<any>()
+  const [value, setValue] = useState('')
+  const [mask, setMask] = useState<any>() // TODO: remove any
 
-  const htmlInputRef = useRef<any>(null)
+  const htmlInputRef = useRef<any>(null) // TODO: remove any
 
   const onInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
-    let newValue = target.value;
+    const newValue = target.value;
 
     if (maskOptions) {
       if (onInputChange) onInputChange(mask.unmaskedValue)
@@ -33,7 +33,7 @@ const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
   }
 
   useEffect(() => {
-    if (maskOptions && htmlInputRef?.current) {
+    if (maskOptions && htmlInputRef?.current && type === 'text') {
       const newMask = IMask(htmlInputRef?.current, maskOptions)
       setMask(newMask)
     }
@@ -45,8 +45,8 @@ const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
 
   return (
     <div className={`input ${className}`}>
-      {label && <label className="label">{label}</label>}
-      <input data-testid="html-input" ref={htmlInputRef} className="htmlInput" value={value} onInput={onInput} type={type} />
+      <label className="label">{label}</label>
+      <input data-testid="html-input" ref={htmlInputRef} className="htmlInput" value={value} onInput={onInput} readOnly={readOnly} type={type} />
       {children}
     </div>
   );

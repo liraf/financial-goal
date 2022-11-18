@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./SavingGoal.scss";
 
 import Card from "../../components/ui/Card/Card";
@@ -7,12 +7,10 @@ import AmountInput from "../../components/AmountInput/AmountInput";
 import DateInput from "../../components/DateInput/DateInput";
 import MonthlyAmount from "../../components/MonthlyAmount/MonthlyAmount";
 import Button from "../../components/ui/Button/Button";
-import { getMonthDiff } from "../../helpers/date";
 
 const SavingGoal = () => {
   const [reachDate, setReachDate] = useState('')
   const [amount, setAmount] = useState(0)
-  const [monthlyAmount, setMonthlyAmount] = useState(0)
 
   const onAmountChange = (value: number) => {
     setAmount(value)
@@ -21,13 +19,6 @@ const SavingGoal = () => {
   const onReachDateChange = (date: string) => {
     setReachDate(date)
   }
-
-  useEffect(() => {
-    const monthsDiff = getMonthDiff(new Date(), new Date(reachDate))
-    const newAmount = Number.isNaN(amount) ? 0 : amount
-    const newMonthlyAmount = Number((newAmount / monthsDiff).toFixed(2))
-    setMonthlyAmount(newMonthlyAmount)
-  }, [amount, reachDate])
 
   return (
     <div className="savingGoal">
@@ -50,7 +41,7 @@ const SavingGoal = () => {
             <DateInput onChange={onReachDateChange} />
           </div>
 
-          <MonthlyAmount value={monthlyAmount} />
+          <MonthlyAmount reachDate={reachDate} amount={amount} />
 
           <Button className="confirmButton">Confirm</Button>
         </>

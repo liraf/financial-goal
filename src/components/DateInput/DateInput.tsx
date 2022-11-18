@@ -16,7 +16,7 @@ const DateInput = (props: DateInputProps) => {
 
   const [value, setValue] = useState<string>(getMonthOneYearAhead().toDateString())
 
-  const inputRef = useRef<any>(null)
+  const inputRef = useRef<any>(null) // TODO: remove any
 
   const month = useMemo(() => {
     return getMonthByString(value)
@@ -67,6 +67,7 @@ const DateInput = (props: DateInputProps) => {
         className="dateInput"
         label="Reach goal by"
         propValue={value}
+        readOnly
       >
         <span className="chevronLeft" data-testid="month-back" onClick={backOneMonth}><ChevronLeft /></span>
         <span className="chevronRight" data-testid="month-ahead" onClick={addOneMonth}><ChevronRight /></span>
