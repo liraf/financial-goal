@@ -4,7 +4,7 @@ import Input from "../ui/Input/Input";
 import DollarSign from "../ui/SystemIcons/DollarSign";
 
 interface AmountInputProps {
-	onChange: (amount: number) => void
+	onChange?: (amount: number) => void
 }
 
 const AmountInput = (props: AmountInputProps) => {
