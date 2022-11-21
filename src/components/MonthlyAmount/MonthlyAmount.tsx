@@ -15,13 +15,9 @@ const MonthlyAmount = (props: MonthlyAmountProps) => {
   const [value, setValue] = useState(0);
   const [monthDiff, setMonthDiff] = useState(0);
 
-  useEffect(() => {
-    const monthsDiff = getMonthDiff(new Date(), new Date(reachDate));
-    setMonthDiff(monthsDiff);
-    const newAmount = Number.isNaN(amount) ? 0 : amount;
-    const newMonthlyAmount = Number((newAmount / monthsDiff).toFixed(2));
-    setValue(newMonthlyAmount);
-  }, [amount, reachDate]);
+  const parsedAmount = useMemo(() => {
+    return Number.isNaN(amount) ? 0 : amount;
+  }, [amount]);
 
   const month = useMemo(() => {
     return getMonthByString(reachDate);
@@ -30,6 +26,14 @@ const MonthlyAmount = (props: MonthlyAmountProps) => {
   const year = useMemo(() => {
     return new Date(reachDate).getFullYear();
   }, [reachDate]);
+
+  useEffect(() => {
+    const monthsDiff = getMonthDiff(new Date(), new Date(reachDate));
+    setMonthDiff(monthsDiff);
+
+    const newMonthlyAmount = Number((parsedAmount / monthsDiff).toFixed(2));
+    setValue(newMonthlyAmount);
+  }, [parsedAmount, reachDate]);
 
   return (
     <div className="monthlyAmount">
@@ -40,7 +44,7 @@ const MonthlyAmount = (props: MonthlyAmountProps) => {
 
       <div className="note">
         You&#39;re planning <b>{monthDiff} monthly deposits</b> to reach your{' '}
-        <b>${formatToCurrency(amount)}</b> goal by{' '}
+        <b>${formatToCurrency(parsedAmount)}</b> goal by{' '}
         <b>
           {month} {year}.
         </b>
