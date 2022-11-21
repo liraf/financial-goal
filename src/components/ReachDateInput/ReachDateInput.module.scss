@@ -5,6 +5,10 @@
     @include typo-headingSmall();
     color: transparent; // Input value will be custom rendered
     padding: 13px 0px 12px 0px;
+
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
+      padding: 15px 0px 15px 0px;
+    }
   }
 }
 
