@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.scss';
+import styles from './Button.module.scss';
 
 export interface ButtonProps {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ const Button = (props: ButtonProps & React.HTMLProps<HTMLButtonElement>) => {
   const { children, className = '', onClick } = props;
 
   return (
-    <button className={`button ${className}`} onClick={onClick}>
+    <button className={`${styles.button} ${className}`} onClick={onClick}>
       {children}
     </button>
   );

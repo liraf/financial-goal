@@ -1,5 +1,5 @@
 import React from 'react';
-import './AmountInput.scss';
+import styles from './AmountInput.module.scss';
 
 import Input from '../ui/Input/Input';
 import DollarSign from '../ui/SystemIcons/DollarSign';
@@ -17,7 +17,7 @@ const AmountInput = (props: AmountInputProps) => {
 
   return (
     <Input
-      className="amountInput"
+      className={styles.amountInput}
       label="Total amount"
       onInputChange={onInputChange}
       maskOptions={{
@@ -26,7 +26,7 @@ const AmountInput = (props: AmountInputProps) => {
         radix: '.',
         max: 1000000000
       }}>
-      <span className="dollarSign">
+      <span className={styles.dollarSign}>
         <DollarSign />
       </span>
     </Input>

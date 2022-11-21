@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import IMask from 'imask';
-import './Input.scss';
+import styles from './Input.module.scss';
 
 interface InputProps {
   label: string;
@@ -53,12 +53,12 @@ const Input = (props: InputProps & React.HTMLProps<HTMLInputElement>) => {
   }, [propValue]);
 
   return (
-    <div className={`input ${className}`}>
-      <label className="label">{label}</label>
+    <div className={`${styles.input} ${className}`}>
+      <label className={styles.label}>{label}</label>
       <input
         data-testid="html-input"
         ref={htmlInputRef}
-        className="htmlInput"
+        className={styles.htmlInput}
         value={value}
         onInput={onInput}
         readOnly={readOnly}

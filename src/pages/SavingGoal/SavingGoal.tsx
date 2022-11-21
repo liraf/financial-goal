@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SavingGoal.scss';
+import styles from './SavingGoal.module.scss';
 
 import Card from '../../components/ui/Card/Card';
 import buyHouse from '../../assets/buyHouse.svg';
@@ -21,31 +21,31 @@ const SavingGoal = () => {
   };
 
   return (
-    <div className="savingGoal">
-      <div className="phrase">
+    <div className={styles.savingGoal}>
+      <div className={styles.phrase}>
         Let&#39;s plan your <b>saving goal.</b>
       </div>
 
-      <Card className="savingCard">
+      <Card className={styles.savingCard}>
         <>
-          <div className="cardHeader">
-            <img className="buyHouse" src={buyHouse} alt="Buy a house" />
+          <div className={styles.cardHeader}>
+            <img className={styles.buyHouse} src={buyHouse} alt="Buy a house" />
             <div>
-              <h1 className="title">Buy a house</h1>
-              <h3 className="subtitle">Saving goal</h3>
+              <h1 className={styles.title}>Buy a house</h1>
+              <h3 className={styles.subtitle}>Saving goal</h3>
             </div>
           </div>
 
-          <div className="amountInputContainer">
+          <div className={styles.amountInputContainer}>
             <AmountInput onChange={onAmountChange} />
           </div>
-          <div className="dateInputContainer">
+          <div className={styles.dateInputContainer}>
             <ReachDateInput onChange={onReachDateChange} />
           </div>
 
           <MonthlyAmount reachDate={reachDate} amount={amount} />
 
-          <Button className="confirmButton">Confirm</Button>
+          <Button className={styles.confirmButton}>Confirm</Button>
         </>
       </Card>
     </div>

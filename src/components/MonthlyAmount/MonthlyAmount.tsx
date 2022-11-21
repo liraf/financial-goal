@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import './MonthlyAmount.scss';
+import styles from './MonthlyAmount.module.scss';
 
 import { formatToCurrency } from '../../helpers/formating';
 import { getMonthDiff, getMonthByString } from '../../helpers/date';
@@ -36,13 +36,13 @@ const MonthlyAmount = (props: MonthlyAmountProps) => {
   }, [parsedAmount, reachDate]);
 
   return (
-    <div className="monthlyAmount">
-      <div className="amountContainer">
-        <h2 className="title">Monthly amount</h2>
-        <span className="amount">${formatToCurrency(value)}</span>
+    <div className={styles.monthlyAmount}>
+      <div className={styles.amountContainer}>
+        <h2 className={styles.title}>Monthly amount</h2>
+        <span className={styles.amount}>${formatToCurrency(value)}</span>
       </div>
 
-      <div className="note">
+      <div className={styles.note}>
         You&#39;re planning <b>{monthDiff} monthly deposits</b> to reach your{' '}
         <b>${formatToCurrency(parsedAmount)}</b> goal by{' '}
         <b>

@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import './ReachDateInput.scss';
+import styles from './ReachDateInput.module.scss';
 
 import Input from '../ui/Input/Input';
 import ChevronRight from '../ui/SystemIcons/ChevronRight';
@@ -44,12 +44,12 @@ const ReachDateInput = (props: ReachDateInputProps) => {
   };
 
   const focusInput = () => {
-    const input = inputRef?.current?.getElementsByClassName('htmlInput')[0] as HTMLElement;
+    const input = inputRef?.current?.getElementsByTagName('input')[0] as HTMLElement;
     if (document.activeElement !== input) input?.focus();
   };
 
   const onKeyPress = (event: KeyboardEvent) => {
-    const input = inputRef?.current?.getElementsByClassName('htmlInput')[0];
+    const input = inputRef?.current?.getElementsByTagName('input')[0] as HTMLElement;
     if (!input || document.activeElement !== input) return;
 
     if (event.code === 'ArrowLeft') backOneMonth();
@@ -63,16 +63,16 @@ const ReachDateInput = (props: ReachDateInputProps) => {
 
   return (
     <div ref={inputRef}>
-      <Input className="reachDateInput" label="Reach goal by" propValue={value} readOnly>
-        <span className="chevronLeft" data-testid="month-back" onClick={backOneMonth}>
+      <Input className={styles.reachDateInput} label="Reach goal by" propValue={value} readOnly>
+        <span className={styles.chevronLeft} data-testid="month-back" onClick={backOneMonth}>
           <ChevronLeft />
         </span>
-        <span className="chevronRight" data-testid="month-ahead" onClick={addOneMonth}>
+        <span className={styles.chevronRight} data-testid="month-ahead" onClick={addOneMonth}>
           <ChevronRight />
         </span>
-        <div className="inputValue" data-testid="month-label" onClick={focusInput}>
-          <span className="month">{month}</span>
-          <span className="year">{year}</span>
+        <div className={styles.inputValue} data-testid="month-label" onClick={focusInput}>
+          <span className={styles.month}>{month}</span>
+          <span className={styles.year}>{year}</span>
         </div>
       </Input>
     </div>

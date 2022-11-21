@@ -1,5 +1,5 @@
 import React from 'react';
-import './Card.scss';
+import styles from './Card.module.scss';
 
 interface CardProps {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ interface CardProps {
 const Card = (props: CardProps) => {
   const { children, className = '' } = props;
 
-  return <div className={`card ${className}`}>{children}</div>;
+  return <div className={`${styles.card} ${className}`}>{children}</div>;
 };
 
 export default Card;
