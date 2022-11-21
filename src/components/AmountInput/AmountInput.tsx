@@ -12,7 +12,7 @@ const AmountInput = (props: AmountInputProps) => {
   const { onChange } = props;
 
   const onInputChange = (value: string) => {
-    if (onChange) onChange(parseInt(value, 10));
+    if (onChange) onChange(parseFloat(value));
   };
 
   return (
@@ -22,11 +22,9 @@ const AmountInput = (props: AmountInputProps) => {
       onInputChange={onInputChange}
       maskOptions={{
         mask: Number,
-        scale: 2,
-        signed: false,
         thousandsSeparator: ',',
-        padFractionalZeros: false,
-        normalizeZeros: true
+        radix: '.',
+        max: 1000000000
       }}>
       <span className="dollarSign">
         <DollarSign />
