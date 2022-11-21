@@ -2,6 +2,10 @@
 
 Financial Goal consists of a react application where a user can provide a financial goal along with the date they want to achieve this goal. The application tells you which values have to be invested per month to reach the goal, and how many months it will take.
 
+## Demo
+
+Check the project demo here: [https://liraf.github.io/financial-goal](https://liraf.github.io/financial-goal)
+
 ## How to Run
 
 In the project directory, you can run:
