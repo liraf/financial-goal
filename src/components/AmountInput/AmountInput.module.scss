@@ -4,7 +4,7 @@
   input {
     @include typo-headingSmall();
     color: $blue-gray-600;
-    padding: 14px 17px 14px 44px;
+    padding: 13px 17px 12px 44px;
 
     @media screen and (max-width: $tablet-portrait-upper-boundary) {
       padding: 16px 17px 16px 44px;
