@@ -1,0 +1,8 @@
+{
+  "short_name": "Origin Financial",
+  "name": "Origin Financial Sample",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#f4f8fa",
+  "background_color": "#f4f8fa"
+}
